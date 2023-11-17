@@ -163,7 +163,7 @@ const { songs } = storeToRefs(kkbox)
     .content {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 50px;
+        gap: 48px;
 
 
 

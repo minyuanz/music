@@ -10,18 +10,16 @@ const pageSize = ref(10)
 const currentPage = ref(1)
 
 const totalPages = computed(() => {
-    return Math.ceil(allSong.value.length / pageSize.value)
+    return Math.ceil(allSinger.value.length / pageSize.value)
 })
 
 const paginatedList = computed(() => {
     const startIndex = (currentPage.value - 1) * pageSize.value
     const endIndex = startIndex + pageSize.value
-    return allSong.value.slice(startIndex, endIndex)
+    return allSinger.value.slice(startIndex, endIndex)
 })
-
-
-const allSong = computed(() => {
-    return dataList.value.tracks.data
+const allSinger = computed(() => {
+    return dataList.value.artists.data
 })
 
 const prevPage = () => {
@@ -39,26 +37,19 @@ const nextPage = () => {
 const goToPage = (page) => {
     currentPage.value = page
 }
-
-
 </script>
 <template>
-    <div class="songWrap max-w-7xl m-auto">
+    <div class="singerWrap max-w-7xl m-auto">
         <div class=" text-3xl font-bold my-5">
-            <h1>歌曲搜尋結果</h1>
+            <h1>歌手搜尋結果</h1>
         </div>
-        <div class="content grid grid-cols-2 gap-12">
-            <div class="song flex items-center py-3 border-b-2 hover:bg-sky-50" v-for="song in paginatedList">
-                <div class="pic mr-3">
-                    <img :src="song.album.images[0].url" alt="" class=" w-12 h-12 align-bottom">
+        <div class="content grid grid-cols-5 gap-10 ">
+            <div class="singer h-40" v-for="singer in paginatedList">
+                <div class="pic mb-5">
+                    <img :src="singer.images[0].url" alt="" class=" rounded-full w-24 h-24 align-bottom m-auto">
                 </div>
-                <div class="txt">
-                    <div class="songName">
-                        <p>{{ song.name }}</p>
-                    </div>
-                    <div class="singer">
-                        <p class=" text-gray-400 hover:underline">{{ song.album.artist.name }}</p>
-                    </div>
+                <div class="name">
+                    <p class=" text-center text-sm">{{ singer.name }}</p>
                 </div>
             </div>
         </div>
@@ -78,5 +69,4 @@ const goToPage = (page) => {
         </div>
     </div>
 </template>
-
-<style lang='scss' scoped></style>
+<style lang='scss'></style>

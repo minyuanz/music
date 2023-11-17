@@ -24,11 +24,11 @@ const fetchData = () => {
     })
         .then(res => res.json())
         .then(res => {
-            console.log(res.tracks.data);
+            // console.log(res.tracks.data);
             kkbox.dataList = res
-            kkbox.songs = res.tracks.data.splice(0, 10)
-            kkbox.singers = res.artists.data.splice(0, 6)
-            kkbox.albums = res.albums.data.splice(0, 5)
+            kkbox.songs = res.tracks.data.slice(0, 10)
+            kkbox.singers = res.artists.data.slice(0, 6)
+            kkbox.albums = res.albums.data.slice(0, 5)
 
         })
         .catch(error => {

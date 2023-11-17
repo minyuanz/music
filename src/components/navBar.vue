@@ -4,10 +4,10 @@
 <template>
     <div class="back">
         <ul>
-            <li><router-link to="/">home</router-link></li>
-            <li><router-link to="/song">song</router-link></li>
-            <li><router-link to="/artist">artist</router-link></li>
-            <li><router-link to="/album">album</router-link></li>
+            <li><router-link to="/">全部</router-link></li>
+            <li><router-link to="/song">歌曲</router-link></li>
+            <li><router-link to="/singer">歌手</router-link></li>
+            <li><router-link to="/album">專輯</router-link></li>
         </ul>
     </div>
 </template>
