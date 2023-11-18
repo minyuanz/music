@@ -6,7 +6,7 @@ import { storeToRefs } from "pinia";
 const kkbox = usekkboxStore()
 const { dataList } = storeToRefs(kkbox)
 
-const pageSize = ref(10)
+const pageSize = ref(15)
 const currentPage = ref(1)
 
 const totalPages = computed(() => {
@@ -39,17 +39,18 @@ const goToPage = (page) => {
 }
 </script>
 <template>
-    <div class="singerWrap max-w-7xl m-auto">
+    <div class="singerWrap max-w-6xl m-auto">
         <div class=" text-3xl font-bold my-5">
             <h1>歌手搜尋結果</h1>
         </div>
         <div class="content grid grid-cols-5 gap-10 ">
             <div class="singer h-40" v-for="singer in paginatedList">
                 <div class="pic mb-5">
-                    <img :src="singer.images[0].url" alt="" class=" rounded-full w-24 h-24 align-bottom m-auto">
+                    <img :src="singer.images[0].url" alt=""
+                        class=" rounded-full w-24 h-24 align-bottom m-auto hover:brightness-50 cursor-pointer">
                 </div>
                 <div class="name">
-                    <p class=" text-center text-sm">{{ singer.name }}</p>
+                    <p class=" text-center text-sm hover:underline cursor-pointer">{{ singer.name }}</p>
                 </div>
             </div>
         </div>
